@@ -4,7 +4,6 @@
 
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
-    font-size: 1rem;
 
     --cor-primaria: #222224;
     --cor-secundaria: #2F4B57;
@@ -13,6 +12,28 @@
     --desfoco: #e0e0e0;
 }
 
+
+/* --- Geral --- */
+html, body {
+    height: 100vh;
+    background-color: #576875;
+}
+
+button {
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+button:hover {
+    color: var(--desfoco);
+}
+
+h1 {
+    font-size: 1.7rem;
+}
+
+
+/* --- Header --- */
 header {
     height: 8rem;
     
@@ -21,6 +42,8 @@ header {
 header nav {
     display: flex;
     align-items: center;
+
+    overflow: scroll;
     
     height: 50%;
     padding: 0 10px;
@@ -61,7 +84,77 @@ header img {
     margin-right: 4px;
 }
 
+
+/* --- Main --- */
 main {
     display: flex;
     justify-content: center;
+
+    height: calc(100% - (8rem + 10px));
+
+    padding-top: 10px;
+}
+
+
+section.dir{
+    width: 50%;
+    height: 100%;
+}
+
+section.esq {
+    width: 40%;
+    height: 100%;
+
+    margin-right: 10px;
+}
+
+section.esq img {
+    height: 100%;
+    background-color: #000;
+}
+
+.conteiner {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    height: 90%;
+
+    margin-top: 5px;
+
+    border: 3px solid var(--cor-primaria);
+    border-radius: 10px;
+
+    background-color: #fff;
+}
+
+.conteiner button {
+    margin: 2px;
+    padding: 12px;
+
+    border: none;
+    border-radius: 5px;
+
+    background-color: #616161;
+    color: #000;
+}
+
+.conteiner section {
+    height: 30%;
+    
+    border-top: 4px solid var(--cor-primaria);
+    border: 0 0 10px 10px;
+
+    background-color: #616161;
+}
+
+/* --- Utilitarios --- */
+.main-btn-click {
+    background-color: #555555;
+    color: var(--desfoco);
+}
+
+nav:last-child .btn-click {
+    background-color: #727272;
+    color: var(--desfoco);
 }

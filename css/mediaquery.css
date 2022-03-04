@@ -1,0 +1,5 @@
+@media (min-width: 700px){
+    header nav {
+        overflow: hidden;
+    }
+}
