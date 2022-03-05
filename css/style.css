@@ -16,7 +16,7 @@
 /* --- Geral --- */
 html, body {
     height: 100vh;
-    background-color: #576875;
+    background-color: #c7d7e4;
 }
 
 button {
@@ -36,7 +36,7 @@ h1 {
 /* --- Header --- */
 header {
     height: 8rem;
-    
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
 }
 
 header nav {
