@@ -27,35 +27,12 @@ const listOfOptions = {
     }
 }
 
-/* Eventos */
-const buttons = [...document.querySelectorAll('button')];
-for (const index in buttons) {
-    buttons[index].addEventListener('click', eventsListener);
-}
 
-function eventsListener(event){
-    const id = event.target.id;
-
-    switch(id){
-        case 'mouse':
-            assembleSubButtons(id);
-            break;
-
-        case 'keyBoard':
-            break;
-
-        case 'screen':
-            break;
-
-        case 'element':
-            break;
-
-        default: subButtons(id);
-    }
-}
+/* Main logic */
 
 function assembleSubButtons(mainButton){
     const secondNavArea = document.querySelector('header nav:last-child');
+    secondNavArea.innerHTML = '';
     const listOfOptionsBtnMain = listOfOptions[mainButton];
 
     for(const option in listOfOptionsBtnMain){
@@ -65,6 +42,9 @@ function assembleSubButtons(mainButton){
                 ${option}
             </button>`;
     }
+
+    const subOptios = [...secondNavArea.querySelectorAll('button')];
+    addEvents(subOptios);
 }
 
 function subButtons(btnClickedId){
@@ -76,7 +56,6 @@ function subButtons(btnClickedId){
     }
 }
 
-
 function makeScreen(obj){
     const codeSide = document.querySelector('section.esq .conteiner');
     const eventSide = document.querySelector('section.dir .conteiner');
@@ -84,4 +63,41 @@ function makeScreen(obj){
     codeSide.innerHTML = `<img src="${obj.img}"></img>`;
     eventSide.innerHTML = `<div>${obj.conteiner_div}</div>`;
     eventSide.innerHTML += `<section>${obj.section}</section>`;
+}
+
+
+/* Eventos */
+
+const buttons = [...document.querySelectorAll('header nav:first-child button')];
+addEvents(buttons);
+
+function addEvents(elements){
+    for (const index in elements) {
+        const button = elements[index];
+        button.addEventListener('click', eventsListener);
+    }
+}
+
+function eventsListener(event){
+    const id = event.target.id;
+
+    switch(id){
+        case 'mouse':
+            assembleSubButtons(id);
+            break;
+
+        case 'keyboard':
+            assembleSubButtons(id);
+            break;
+
+        case 'screen':
+            assembleSubButtons(id);
+            break;
+
+        case 'element':
+            assembleSubButtons(id);
+            break;
+
+        default: subButtons(id);
+    }
 }
