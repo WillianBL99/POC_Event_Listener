@@ -148,6 +148,25 @@ section.esq img {
     background-color: #616161;
 }
 
+.conteiner section p {
+    display: flex;
+    flex-direction: column;
+
+    
+    padding: 4px;
+    
+    color: #eee;
+}
+
+.conteiner span {
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 400;    
+    font-size: 1.5rem;
+
+    margin-top: 3px;
+    word-wrap: break-word;
+}
+
 /* --- Utilitarios --- */
 .main-btn-click {
     background-color: #555555;
