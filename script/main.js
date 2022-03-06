@@ -24,7 +24,27 @@ const comands = {
         conteiner_div: `<button>Clique com o botão direito</button>`,
         section: '',
         msg: 'Foi clicado o botão direito do mouse'
-    }
+    },
+    // keyboard
+    keypressed: {
+        img: './img/img_code/click.png',
+        conteiner_div: `<button>Clique com o botão direito</button>`,
+        section: '',
+        msg: 'Foi clicado o botão direito do mouse'
+    },
+    keydown: {
+        img: './img/img_code/click.png',
+        conteiner_div: `<button>Clique com o botão direito</button>`,
+        section: '',
+        msg: 'Foi clicado o botão direito do mouse'
+    },
+    keyup: {
+        img: './img/img_code/click.png',
+        conteiner_div: `<button>Clique com o botão direito</button>`,
+        section: '',
+        msg: 'Foi clicado o botão direito do mouse'
+    },
+    //screen
 }
 
 const listOfOptions = {
@@ -33,6 +53,17 @@ const listOfOptions = {
         click: {icon: 'leftclickmouse'},
         dblclick: {icon: 'leftclickmouse'},
         contextmenu: {icon: 'rightclickmouse'}
+    },
+    keyboard: {
+        keypressed: {icon: 'mouse'},
+        keydown: {icon: 'mouse'},
+        keyup: {icon: 'leftclickmouse'},
+    },
+    screen: {
+        fullscreenchange: {icon: 'mouse'}
+    },
+    element: {
+
     }
 }
 
@@ -41,21 +72,26 @@ addEvents(buttons);
 
 /* Main logic */
 
-function assembleSubButtons(mainButton){
+function assembleSubButtons(category){
     const secondNavArea = document.querySelector('header nav:last-child');
     secondNavArea.innerHTML = '';
-    const listOfOptionsBtnMain = listOfOptions[mainButton];
 
-    for(const option in listOfOptionsBtnMain){
-        secondNavArea.innerHTML += `
-            <button id="${option}">
-                <img src="./img/${listOfOptionsBtnMain[option].icon}.png" alt="botão"></img>
-                ${option}
-            </button>`;
+    for(const option in listOfOptions[category]){
+        secondNavArea.innerHTML += button(category, option);
     }
 
     const subOptios = [...secondNavArea.querySelectorAll('button')];
     addEvents(subOptios);
+
+    focusButton(category);
+}
+
+function button(category, option){
+    return `
+    <button id="${option}">
+        <img onclick="" src="./img/${listOfOptions[category][option].icon}.png" alt="botão"></img>
+        ${option}
+    </button>`;
 }
 
 function subButtons(btnClickedId){
@@ -78,18 +114,26 @@ function makeScreen(obj){
     upDateElements();
 }
 
+function focusButton(id){
+    const button = document.querySelector('.main-btn-click');
+    if(button){
+        button.classList.remove('main-btn-click');
+    }
+    const buttonFocus = document.querySelector(`#${id}`);
+    buttonFocus.classList.add('main-btn-click');
+}
 
 /* Eventos */
 
 function upDateElements(){
     const button = document.querySelector('.dir .conteiner button');
-    button.addEventListener(currentEvent, simulateEvent, false);
+    button.addEventListener(currentEvent, simulateEvent, true);
 }
 
 function addEvents(elements){
     for (const index in elements) {
         const button = elements[index];
-        button.addEventListener('click', eventsListener);
+        button.addEventListener('click', eventsListener, true);
     }
 }
 
