@@ -102,6 +102,7 @@ section.dir{
 }
 
 section.esq {
+    display: none;
     width: 40%;
     height: 100%;
 
@@ -176,4 +177,11 @@ section.esq img {
 nav:last-child .btn-click {
     background-color: #727272;
     color: var(--desfoco);
+}
+
+
+.brother {
+    width: 100px;
+    height: 100px;
+    background-color: red;
 }

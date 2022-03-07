@@ -28,23 +28,23 @@ const comands = {
     // keyboard
     keypressed: {
         img: './img/img_code/click.png',
-        conteiner_div: `<button>Clique com o botão direito</button>`,
+        conteiner_div: `<button>Clique e digite</button>`,
         section: '',
-        msg: 'Foi clicado o botão direito do mouse'
+        msg: 'Tecla precionada e solta'
     },
     keydown: {
         img: './img/img_code/click.png',
-        conteiner_div: `<button>Clique com o botão direito</button>`,
+        conteiner_div: `<button>Clique e digite</button>`,
         section: '',
-        msg: 'Foi clicado o botão direito do mouse'
+        msg: 'Tecla pressionada'
     },
     keyup: {
         img: './img/img_code/click.png',
-        conteiner_div: `<button>Clique com o botão direito</button>`,
+        conteiner_div: `<button>Clique e digite</button>`,
         section: '',
-        msg: 'Foi clicado o botão direito do mouse'
+        msg: 'Tecla solta'
     },
-    //screen
+    //bubblin
 }
 
 const listOfOptions = {
@@ -58,12 +58,6 @@ const listOfOptions = {
         keypressed: {icon: 'mouse'},
         keydown: {icon: 'mouse'},
         keyup: {icon: 'leftclickmouse'},
-    },
-    screen: {
-        fullscreenchange: {icon: 'mouse'}
-    },
-    element: {
-
     }
 }
 
